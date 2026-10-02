@@ -34,6 +34,38 @@
 
 <body>
 
+    </head>
+
+<body>
+
+    <!-- Terminal Boot -->
+    <div id="boot-screen">
+        <div class="boot-terminal">
+            <div class="boot-line">> initializing amirali.me...</div>
+            <div class="boot-line">> loading profile...</div>
+            <div class="boot-line">> loading projects...</div>
+            <div class="boot-line">> loading skills...</div>
+            <div class="boot-line">> establishing connection...</div>
+            <div class="boot-line success">> access granted.</div>
+
+            <div class="boot-welcome">
+                Welcome, Amirali<span class="boot-cursor">_</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Rain -->
+    <canvas id="matrix-canvas"></canvas>
+
+
+    <!-- از اینجا سایت اصلی خودت -->
+    <header>
+        ...
+    </header>
+
+    <main>
+        ...
+    </main>
     <!-- ==================== Header ==================== -->
 
     <header>
@@ -798,6 +830,107 @@
     <script defer src="js/projects.js"></script>
     <script defer src="js/terminal.js"></script>
     <script defer src="js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const bootScreen = document.getElementById("boot-screen");
+
+    if (!bootScreen) return;
+
+    setTimeout(() => {
+        bootScreen.classList.add("hidden");
+
+        setTimeout(() => {
+            bootScreen.remove();
+        }, 800);
+
+    }, 3200);
+});
+    </script>
+    
+    <script>
+(() => {
+    const canvas = document.getElementById("matrix-canvas");
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    const characters =
+        "アァカサタナハマヤャラワガザダバパ" +
+        "0123456789" +
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "<>{}[]/\\|=+-_*";
+
+    let width;
+    let height;
+    let fontSize;
+    let columns;
+    let drops;
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        fontSize = width < 600 ? 12 : 15;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        columns = Math.floor(width / fontSize);
+
+        drops = Array.from(
+            { length: columns },
+            () => Math.random() * -50
+        );
+    }
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.055)";
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < columns; i++) {
+            const char =
+                characters[
+                    Math.floor(Math.random() * characters.length)
+                ];
+
+            const x = i * fontSize;
+            const y = drops[i] * fontSize;
+
+            ctx.fillStyle = "rgba(0, 170, 255, 0.75)";
+            ctx.fillText(char, x, y);
+
+            if (y > height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i] += 0.65;
+        }
+    }
+
+    resize();
+
+    window.addEventListener("resize", resize);
+
+    let lastFrame = 0;
+    const interval = 1000 / 30;
+
+    function animate(timestamp) {
+        if (timestamp - lastFrame >= interval) {
+            draw();
+            lastFrame = timestamp;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+
+})();
+</script>
 
 </body>
 </html>
