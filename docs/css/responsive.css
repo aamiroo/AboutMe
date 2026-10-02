@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Amirali — Portfolio
+   responsive.css — layout adaptations
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Mobile navigation dropdown
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 860px) {
+
+    nav > ul {
+        position: absolute;
+
+        inset-inline: 0;
+        inset-block-start: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 0.15rem;
+
+        padding-block: 0.6rem 0.9rem;
+        padding-inline: var(--gutter);
+
+        background-color: var(--bg-soft);
+
+        border-block-end: 1px solid var(--border);
+
+        box-shadow: var(--shadow-md);
+    }
+
+    nav > ul.is-open {
+        display: flex;
+    }
+
+    nav > ul li {
+        width: 100%;
+    }
+
+    nav > ul a {
+        padding: 0.7rem 0.85rem;
+    }
+
+    nav {
+        flex-wrap: nowrap;
+    }
+
+    #language-toggle {
+        margin-inline-start: auto;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 640px) {
+
+    body > footer {
+        flex-wrap: nowrap;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   Desktop navigation + two-column about
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 861px) {
+
+    nav > ul {
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.2rem;
+
+        margin-inline-end: 0.75rem;
+    }
+
+    #nav-toggle {
+        display: none;
+    }
+
+    #about {
+        grid-template-columns:
+            minmax(0, 1.1fr)
+            minmax(0, 0.9fr);
+    }
+
+    #about > header {
+        grid-column: 1 / -1;
+    }
+
+    #skills .skills__grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    #projects > div {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   Hero two columns
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+
+    #hero {
+        grid-template-columns:
+            minmax(0, 1.05fr)
+            minmax(0, 0.95fr);
+
+        gap: clamp(2rem, 5vw, 4rem);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   Large screens
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1200px) {
+
+    .terminal__output {
+        max-height: 19rem;
+    }
+}
