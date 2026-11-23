@@ -34,10 +34,6 @@
 
 <body>
 
-    </head>
-
-<body>
-
     <!-- Terminal Boot -->
     <div id="boot-screen">
         <div class="boot-terminal">
@@ -58,14 +54,6 @@
     <canvas id="matrix-canvas"></canvas>
 
 
-    <!-- از اینجا سایت اصلی خودت -->
-    <header>
-        ...
-    </header>
-
-    <main>
-        ...
-    </main>
     <!-- ==================== Header ==================== -->
 
     <header>
@@ -270,6 +258,10 @@
 
             </aside>
 
+            <div class="personal-mark" aria-label="Personal symbols" title="Amirali's personal symbols">
+                <span>⌘</span><span>💻</span><span>🎧</span><span>⚙</span>
+            </div>
+
         </section>
 
 
@@ -344,125 +336,46 @@
 
         <section id="projects" aria-labelledby="projects-title">
 
-            <header>
-
+            <header class="projects__header">
                 <p>02</p>
-
-                <h2 id="projects-title" data-i18n="projects.title">
-                    Projects
-                </h2>
-
-                <p data-i18n="projects.subtitle">
-                    Some of the things I've built.
-                </p>
-
+                <h2 id="projects-title" data-i18n="projects.title">Projects</h2>
+                <p data-i18n="projects.subtitle">Selected things I've built and worked on.</p>
+                <div class="projects__controls" aria-label="Project carousel controls">
+                    <button type="button" class="project-nav project-nav--prev" aria-label="Scroll projects left">←</button>
+                    <button type="button" class="project-nav project-nav--next" aria-label="Scroll projects right">→</button>
+                </div>
             </header>
 
-
-            <div>
-
-                <!-- Anonymous Messaging Platform -->
-
-                <article>
-
-                    <a
-                        href="https://github.com/aamiroo/Anonymous"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View Anonymous Messaging Platform on GitHub"
-                        data-i18n-aria="projects.anonymous.aria"
-                    >
-
-                        <figure>
-
-                            <img
-                                src="assets/images/anonymous.png"
-                                alt="Anonymous Messaging Platform"
-                            >
-
-                        </figure>
-
-                        <h3>
-                            Anonymous Messaging Platform
-                        </h3>
-
-                        <p>
-                            Python · FastAPI · WebSocket
-                        </p>
-
+            <div class="projects__track" id="projects-track" tabindex="0" aria-label="Horizontally scrollable projects">
+                <article class="project-card project-card--gamestat">
+                    <a href="https://github.com/aamiroo/gamestat" target="_blank" rel="noopener noreferrer" aria-label="View GameStat on GitHub">
+                        <div class="project-card__visual"><span class="project-card__index">01 / SYSTEMS</span><div class="project-visual__screen"><span>GAMESTAT</span><strong>144 <small>FPS</small></strong><i>CPU  ·  GPU  ·  FRAME TIME</i></div></div>
+                        <div class="project-card__body"><div class="project-card__meta"><span>LINUX · PERFORMANCE</span><span>01</span></div><h3>GameStat</h3><p>Real-time gaming performance overlay for monitoring FPS, CPU/GPU usage and temperatures.</p><div class="project-card__tags"><span>Python</span><span>C++</span><span>Linux</span><span>Vulkan / OpenGL</span></div><span class="project-card__link">Explore repository ↗</span></div>
                     </a>
-
                 </article>
 
-
-                <!-- SourcesList -->
-
-                <article>
-
-                    <a
-                        href="https://github.com/aamiroo/SourcesList"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View SourcesList on GitHub"
-                        data-i18n-aria="projects.sourceslist.aria"
-                    >
-
-                        <figure>
-
-                            <img
-                                src="assets/images/sourceslist.png"
-                                alt="SourcesList"
-                            >
-
-                        </figure>
-
-                        <h3>
-                            SourcesList
-                        </h3>
-
-                        <p>
-                            Python · FastAPI · REST API
-                        </p>
-
+                <article class="project-card project-card--anonymous">
+                    <a href="https://github.com/aamiroo/Anonymous" target="_blank" rel="noopener noreferrer" aria-label="View Anonymous Messaging Platform on GitHub">
+                        <div class="project-card__visual"><span class="project-card__index">02 / WEB APP</span><div class="project-visual__chat"><span>anonymous message</span><b>••••••••••••••••</b><i>message received</i></div></div>
+                        <div class="project-card__body"><div class="project-card__meta"><span>BACKEND · MESSAGING</span><span>02</span></div><h3>Anonymous Chat</h3><p>An anonymous messaging platform built around a bot-based flow, authentication and backend services.</p><div class="project-card__tags"><span>Python</span><span>FastAPI</span><span>SQLite</span><span>SQLAlchemy</span></div><span class="project-card__link">Explore repository ↗</span></div>
                     </a>
-
                 </article>
 
-
-                <!-- Telegram Reminder Bot -->
-
-                <article>
-
-                    <a
-                        href="https://github.com/aamiroo/Telgram_bot"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="View Telegram Reminder Bot on GitHub"
-                        data-i18n-aria="projects.telegram.aria"
-                    >
-
-                        <figure>
-
-                            <img
-                                src="assets/images/telegram-bot.png"
-                                alt="Telegram Reminder Bot"
-                            >
-
-                        </figure>
-
-                        <h3>
-                            Telegram Reminder Bot
-                        </h3>
-
-                        <p>
-                            Python · Telegram · MySQL
-                        </p>
-
+                <article class="project-card project-card--crypto">
+                    <a href="https://github.com/aamiroo" target="_blank" rel="noopener noreferrer" aria-label="Find crypto terminal project on GitHub profile">
+                        <div class="project-card__visual"><span class="project-card__index">03 / REAL-TIME DATA</span><div class="project-visual__chart"><span>BTC / USDT</span><strong>↗</strong><svg viewBox="0 0 320 100" role="img" aria-label="Decorative market chart"><polyline points="0,78 30,65 55,72 82,40 105,52 132,28 158,45 184,18 210,35 236,12 260,29 290,8 320,16"/></svg><i>LIVE MARKET · WEBSOCKET</i></div></div>
+                        <div class="project-card__body"><div class="project-card__meta"><span>FINTECH · STREAMING</span><span>03</span></div><h3>Crypto Trading Terminal</h3><p>A real-time Bybit market terminal with a Node.js backend, live candle delivery and an interactive charting interface.</p><div class="project-card__tags"><span>Node.js</span><span>WebSocket</span><span>Bybit API</span><span>Lightweight Charts</span></div><span class="project-card__link">View GitHub profile ↗</span></div>
                     </a>
-
                 </article>
 
+                <article class="project-card project-card--sources">
+                    <a href="https://github.com/aamiroo/SourcesList" target="_blank" rel="noopener noreferrer" aria-label="View SourcesList on GitHub">
+                        <div class="project-card__visual"><span class="project-card__index">04 / DEVELOPER TOOL</span><div class="project-visual__code"><span>$ apt-source --generate</span><b>deb https://deb.debian.org/debian</b><i>✓ configuration generated</i></div></div>
+                        <div class="project-card__body"><div class="project-card__meta"><span>LINUX · AUTOMATION</span><span>04</span></div><h3>SourcesList</h3><p>A Debian APT sources generator with a FastAPI backend and a lightweight web interface.</p><div class="project-card__tags"><span>Python</span><span>FastAPI</span><span>Debian</span><span>REST API</span></div><span class="project-card__link">Explore repository ↗</span></div>
+                    </a>
+                </article>
             </div>
+            <p class="projects__hint" data-i18n="projects.hint">Scroll horizontally to explore projects</p>
 
         </section>
 
@@ -828,6 +741,7 @@
 
     <script defer src="js/i18n.js"></script>
     <script defer src="js/projects.js"></script>
+    <script defer src="js/project-carousel.js"></script>
     <script defer src="js/terminal.js"></script>
     <script defer src="js/main.js"></script>
 
